@@ -128,7 +128,7 @@ func dashing():
 		current_state = player_states.MOVE
 	
 	move_and_slide()
-	
+
 func input_movement(delta):
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if input != 0:

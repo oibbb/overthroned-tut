@@ -173,6 +173,7 @@ _data = {
 size = Vector2(13, 20)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 17
 script = ExtResource("1_a3d8c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -193,6 +194,8 @@ autoplay = "Idle"
 
 [node name="Sword" type="Area2D" parent="."]
 position = Vector2(19, 10)
+collision_layer = 4
+collision_mask = 8
 
 [node name="sword_collider" type="CollisionShape2D" parent="Sword"]
 shape = SubResource("RectangleShape2D_74mp2")
