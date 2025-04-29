@@ -326,6 +326,7 @@ terrain_set_0/terrain_0/color = Color(0.701525, 0, 0.362917, 1)
 sources/0 = SubResource("TileSetAtlasSource_syshm")
 
 [node name="level_1" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-485.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-28, -13)
