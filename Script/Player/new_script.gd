@@ -26,6 +26,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if Player_Data.life <= 0:
+		current_state = player_states.DEAD
+
+	
 	match current_state:
 		player_states.MOVE:
 			movement(delta)
@@ -33,6 +37,9 @@ func _physics_process(delta):
 			sword(delta)
 		player_states.DASH:
 			dashing()
+		player_states.DEAD:
+			dead()
+
 
 
 func movement(delta):
@@ -103,10 +110,18 @@ func gravity_force():
 		velocity.y += gravity
 	elif wall_collider():
 		velocity.y += 0.5
-	
+
 func sword(delta):
 	$Anim.play("Sword")
 	input_movement(delta)
+	
+func dead():
+	$Anim.play("Dead")
+	velocity.x = 0
+	await $Anim.animation_finished
+	Player_Data.life = 4
+	if get_tree():
+		get_tree().reload_current_scene()
 	
 func dashing():
 	if velocity.x > 0:
@@ -126,8 +141,10 @@ func dashing():
 			velocity.x -= dash_force
 		await get_tree().create_timer(0.1).timeout
 		current_state = player_states.MOVE
-	
+		
 	move_and_slide()
+
+
 
 func input_movement(delta):
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

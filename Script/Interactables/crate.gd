@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Sword":
+		Player_Data.life += 1 
 		$anim.play("Destroyed")
 		await $anim.animation_finished
 		queue_free()
