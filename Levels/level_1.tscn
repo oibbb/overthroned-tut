@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://cyyjybdl6ry1q"]
+[gd_scene load_steps=18 format=4 uid="uid://cyyjybdl6ry1q"]
 
 [ext_resource type="PackedScene" uid="uid://bk7rmotx72hgd" path="res://Scenes/Player/player.tscn" id="1_n0qsc"]
 [ext_resource type="Script" uid="uid://0rs5w7hiw0iw" path="res://Script/Control/camera.gd" id="1_rfktq"]
 [ext_resource type="Texture2D" uid="uid://xjpp3xr5nwww" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_3mhv4"]
 [ext_resource type="Texture2D" uid="uid://bh216cb5oim0" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Environment/Overthroned assets/Ground Assets/Grass.png" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://q2nnpvbcuy88" path="res://Scenes/Interactables/spike.tscn" id="3_f4pg2"]
-[ext_resource type="Texture2D" uid="uid://djtc0yjog7vjj" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Environment/Overthroned assets/afternoon-background.png" id="4_rf6l5"]
 [ext_resource type="Texture2D" uid="uid://ct75dlpw6tym" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Environment/Overthroned assets/Other Assets/Grass-foliage.png" id="4_syshm"]
 [ext_resource type="Texture2D" uid="uid://q7ba5duf40hb" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="7_0urlm"]
 [ext_resource type="Script" uid="uid://cwd1jgxmr0yct" path="res://Script/UI/GUI.gd" id="7_77x7w"]
@@ -342,6 +341,7 @@ script = ExtResource("1_rfktq")
 [node name="Player" parent="." instance=ExtResource("1_n0qsc")]
 position = Vector2(-139, -25)
 collision_mask = 2
+jump_force = 300
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -389,12 +389,6 @@ current_state = 1
 
 [node name="Crate" parent="TileMap" instance=ExtResource("7_xoyoh")]
 position = Vector2(861, 53)
-
-[node name="Afternoon-background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(167, -73)
-scale = Vector2(0.490983, 0.316898)
-texture = ExtResource("4_rf6l5")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource("7_77x7w")
