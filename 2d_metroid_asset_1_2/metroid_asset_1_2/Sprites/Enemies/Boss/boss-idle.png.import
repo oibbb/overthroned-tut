@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxc7f4ur85nhl"
-path="res://.godot/imported/enemy_rpg.png-541e0648bbfa23b2d51bc6c5c4ea7333.ctex"
+uid="uid://doekq04udiyr8"
+path="res://.godot/imported/boss-idle.png-872c8844a2866e21c6844c585a64314f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/enemy_rpg.png"
-dest_files=["res://.godot/imported/enemy_rpg.png-541e0648bbfa23b2d51bc6c5c4ea7333.ctex"]
+source_file="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-idle.png"
+dest_files=["res://.godot/imported/boss-idle.png-872c8844a2866e21c6844c585a64314f.ctex"]
 
 [params]
 

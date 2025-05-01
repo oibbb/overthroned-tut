@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bk7rmotx72hgd"]
 
-[ext_resource type="Script" uid="uid://cr2f0njexrx3r" path="res://Script/Player/new_script.gd" id="1_a3d8c"]
+[ext_resource type="Script" uid="uid://cr2f0njexrx3r" path="res://Script/Player/Player_Movement.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://xpx8cdxt2iwt" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Player/Player_metroid.png" id="1_uvnfx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]

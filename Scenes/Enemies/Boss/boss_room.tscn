@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6lcsgmwytf65"]
+
+[ext_resource type="PackedScene" uid="uid://cttglyqsvm6pe" path="res://Scenes/Enemies/Boss/samurai_wannabe.tscn" id="1_xe74p"]
+
+[node name="BossRoom" type="Node2D"]
+
+[node name="Samurai Wannabe" parent="." instance=ExtResource("1_xe74p")]
+position = Vector2(348, 249)
