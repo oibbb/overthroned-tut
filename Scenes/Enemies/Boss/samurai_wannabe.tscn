@@ -1,6 +1,7 @@
-[gd_scene load_steps=143 format=3 uid="uid://cttglyqsvm6pe"]
+[gd_scene load_steps=146 format=3 uid="uid://cttglyqsvm6pe"]
 
 [ext_resource type="Texture2D" uid="uid://dvnn0sby0nak6" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern1.png" id="1_clnux"]
+[ext_resource type="Script" uid="uid://coi5wx7aw8rfj" path="res://Script/Enemies/Boss/samurai_wannabe.gd" id="1_osjj0"]
 [ext_resource type="Texture2D" uid="uid://bxk1qrap8xm5e" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern2.png" id="2_r21s4"]
 [ext_resource type="Texture2D" uid="uid://di8yxejjs0j47" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern3.png" id="3_gcqkm"]
 [ext_resource type="Texture2D" uid="uid://bims5s3rdfc88" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern4.png" id="4_ru4kp"]
@@ -8,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://csj8mi61tsn4h" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-jump.png" id="6_osjj0"]
 [ext_resource type="Texture2D" uid="uid://2edp5js6qwi8" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-walking.png" id="7_pxnx5"]
 [ext_resource type="Script" uid="uid://bq875b67ku5so" path="res://Script/Enemies/Boss/finite_state_machine.gd" id="8_gcqkm"]
+[ext_resource type="Script" uid="uid://dckymjivee48p" path="res://Script/Enemies/Boss/idle.gd" id="9_74ukt"]
 [ext_resource type="Script" uid="uid://dw4f8sgvwulrd" path="res://Script/Enemies/Boss/state.gd" id="9_ru4kp"]
+[ext_resource type="Script" uid="uid://hy52gpgdmetj" path="res://Script/Enemies/Boss/walking.gd" id="11_pxnx5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqudx"]
 atlas = ExtResource("1_clnux")
@@ -1188,6 +1191,7 @@ size = Vector2(500, 500)
 [node name="Samurai Wannabe" type="CharacterBody2D"]
 collision_layer = 32
 collision_mask = 0
+script = ExtResource("1_osjj0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2kne7")
@@ -1205,7 +1209,7 @@ shape = SubResource("CapsuleShape2D_081mk")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 64
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("RectangleShape2D_yqv5c")
@@ -1266,10 +1270,10 @@ text = "Debug"
 script = ExtResource("8_gcqkm")
 
 [node name="Idle" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("9_ru4kp")
+script = ExtResource("9_74ukt")
 
 [node name="Walking" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("9_ru4kp")
+script = ExtResource("11_pxnx5")
 
 [node name="Jump" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_ru4kp")
@@ -1285,3 +1289,5 @@ script = ExtResource("9_ru4kp")
 
 [node name="Attack4" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_ru4kp")
+
+[connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

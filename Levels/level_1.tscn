@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cyyjybdl6ry1q"]
+[gd_scene load_steps=35 format=4 uid="uid://cyyjybdl6ry1q"]
 
 [ext_resource type="PackedScene" uid="uid://bk7rmotx72hgd" path="res://Scenes/Player/player.tscn" id="1_n0qsc"]
 [ext_resource type="Script" uid="uid://0rs5w7hiw0iw" path="res://Script/Control/camera.gd" id="1_rfktq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://crdt2ohfsa0e5" path="res://Levels/level_1.gdshader" id="11_rs4xw"]
 [ext_resource type="Texture2D" uid="uid://drhcjpw0va0wr" path="res://1 Backgrounds/1/Night/1.png" id="12_lk57d"]
 [ext_resource type="Texture2D" uid="uid://b4n15yi010rxv" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Environment/Overthroned assets/Other Assets/fire.png" id="14_1rr3k"]
+[ext_resource type="PackedScene" uid="uid://cttglyqsvm6pe" path="res://Scenes/Enemies/Boss/samurai_wannabe.tscn" id="20_hsj5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hkqn"]
 shader = ExtResource("11_rs4xw")
@@ -843,3 +844,6 @@ position = Vector2(24, 81)
 scale = Vector2(3, 3)
 texture = ExtResource("7_0urlm")
 hframes = 5
+
+[node name="Samurai Wannabe" parent="." instance=ExtResource("20_hsj5a")]
+position = Vector2(250, 29)
