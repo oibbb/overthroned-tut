@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://cttglyqsvm6pe"]
+[gd_scene load_steps=147 format=3 uid="uid://cttglyqsvm6pe"]
 
 [ext_resource type="Texture2D" uid="uid://dvnn0sby0nak6" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern1.png" id="1_clnux"]
 [ext_resource type="Script" uid="uid://coi5wx7aw8rfj" path="res://Script/Enemies/Boss/samurai_wannabe.gd" id="1_osjj0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dckymjivee48p" path="res://Script/Enemies/Boss/idle.gd" id="9_74ukt"]
 [ext_resource type="Script" uid="uid://dw4f8sgvwulrd" path="res://Script/Enemies/Boss/state.gd" id="9_ru4kp"]
 [ext_resource type="Script" uid="uid://hy52gpgdmetj" path="res://Script/Enemies/Boss/walking.gd" id="11_pxnx5"]
+[ext_resource type="Script" uid="uid://bnesacfkc60sg" path="res://Scenes/Enemies/Boss/attack_1.gd" id="13_pxnx5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqudx"]
 atlas = ExtResource("1_clnux")
@@ -1279,7 +1280,7 @@ script = ExtResource("11_pxnx5")
 script = ExtResource("9_ru4kp")
 
 [node name="Attack1" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("9_ru4kp")
+script = ExtResource("13_pxnx5")
 
 [node name="Attack2" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_ru4kp")
