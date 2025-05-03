@@ -1,5 +1,6 @@
 extends State
 
+
 func enter():
 	super.enter()
 	combo()
@@ -14,8 +15,6 @@ func combo():
 	for i in move_set:
 		await attack(i)
 	combo()
-
-
 
 func transition():
 	if owner.direction.length()> 40:

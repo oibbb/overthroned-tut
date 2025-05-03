@@ -22,6 +22,7 @@ enum player_states {MOVE, SWORD, DEAD, DASH}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sword/sword_collider.disabled = true
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -112,8 +113,12 @@ func gravity_force():
 		velocity.y += 0.5
 
 func sword(delta):
+	$Sword/sword_collider.disabled = false
 	$Anim.play("Sword")
-	input_movement(delta)
+	await $Anim.animation_finished
+	$Sword/sword_collider.disabled = true
+	current_state = player_states.MOVE
+
 	
 func dead():
 	$Anim.play("Dead")

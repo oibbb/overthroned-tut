@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://cttglyqsvm6pe"]
+[gd_scene load_steps=148 format=3 uid="uid://cttglyqsvm6pe"]
 
 [ext_resource type="Texture2D" uid="uid://dvnn0sby0nak6" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Enemies/Boss/boss-atk-pattern1.png" id="1_clnux"]
 [ext_resource type="Script" uid="uid://coi5wx7aw8rfj" path="res://Script/Enemies/Boss/samurai_wannabe.gd" id="1_osjj0"]
@@ -1189,9 +1189,12 @@ height = 62.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqv5c"]
 size = Vector2(500, 500)
 
-[node name="Samurai Wannabe" type="CharacterBody2D"]
-collision_layer = 32
-collision_mask = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxnx5"]
+size = Vector2(14, 36)
+
+[node name="Samurai Wannabe" type="CharacterBody2D" groups=["samurai_wannabe"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_osjj0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1214,6 +1217,14 @@ collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("RectangleShape2D_yqv5c")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_pxnx5")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1290,5 +1301,3 @@ script = ExtResource("9_ru4kp")
 
 [node name="Attack4" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_ru4kp")
-
-[connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk7rmotx72hgd"]
+[gd_scene load_steps=14 format=3 uid="uid://bk7rmotx72hgd"]
 
 [ext_resource type="Script" uid="uid://cr2f0njexrx3r" path="res://Script/Player/Player_Movement.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://xpx8cdxt2iwt" path="res://2d_metroid_asset_1_2/metroid_asset_1_2/Sprites/Player/Player_metroid.png" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://c1bbwhabgxhmo" path="res://Scenes/Player/sword.gd" id="3_xpcdj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
 radius = 6.0
@@ -172,7 +173,8 @@ _data = {
 size = Vector2(13, 20)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 17
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_a3d8c")
 speed = 250.0
 
@@ -194,10 +196,13 @@ autoplay = "Idle"
 
 [node name="Sword" type="Area2D" parent="."]
 position = Vector2(19, 10)
-collision_layer = 4
-collision_mask = 8
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_xpcdj")
 
 [node name="sword_collider" type="CollisionShape2D" parent="Sword"]
+light_mask = 3
+visibility_layer = 3
 shape = SubResource("RectangleShape2D_74mp2")
 debug_color = Color(0.490098, 0, 0.0976013, 0.42)
 
@@ -205,3 +210,6 @@ debug_color = Color(0.490098, 0, 0.0976013, 0.42)
 position = Vector2(1, 11)
 target_position = Vector2(9, 0)
 collision_mask = 3
+
+[connection signal="input_event" from="." to="Sword" method="_on_player_input_event"]
+[connection signal="area_entered" from="Sword" to="." method="_on_sword_area_entered"]
