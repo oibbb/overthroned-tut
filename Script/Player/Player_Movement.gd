@@ -22,6 +22,7 @@ enum player_states {MOVE, SWORD, DEAD, DASH}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sword/sword_collider.disabled = true
+	$Sword/sword_collider.connect("hit", Callable(self, "_on_sword_hit"))
 	
 
 
@@ -117,7 +118,7 @@ func sword(delta):
 	$Anim.play("Sword")
 	await $Anim.animation_finished
 	$Sword/sword_collider.disabled = true
-	current_state = player_states.MOVE
+	
 
 	
 func dead():
@@ -170,8 +171,18 @@ func input_movement(delta):
 	gravity_force()
 	move_and_slide()
 
+func _on_sword_hit(target):
+	if target.has_method("take_damage"):
+		target.take_damage()
+
+
 func wall_collider():
 	return wall.is_colliding()
 
 func reset_states():
 	current_state = player_states.MOVE
+
+
+func _on_sword_body_entered(body: Node2D) -> void:
+	if body.is_in_group("samurai_wannabe"):
+		body.take_damage()

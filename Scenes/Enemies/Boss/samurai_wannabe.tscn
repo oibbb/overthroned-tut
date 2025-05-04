@@ -1220,6 +1220,7 @@ size = Vector2(34, 49)
 
 [node name="Samurai Wannabe" type="CharacterBody2D" groups=["samurai_wannabe"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_osjj0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

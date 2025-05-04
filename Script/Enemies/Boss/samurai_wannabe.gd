@@ -25,10 +25,6 @@ func _ready():
 	progress_bar.value = health
 	$AttackArea.monitoring = true
 
-
-
-
-
 func _process(_delta):
 	# Flip sprite based on player's relative position
 	if player:
@@ -45,8 +41,8 @@ func _physics_process(delta):
 
 # Called by the player's sword hitbox via signal or collision
 func take_damage():
-	health -= 1
-	
+	health = health - 1
+ 
 
 # Damages the player with cooldown to prevent spam
 func damage_player():
