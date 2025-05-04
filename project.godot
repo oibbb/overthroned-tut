@@ -55,6 +55,7 @@ ui_dash={
 2d_physics/layer_5="Damage_zone"
 2d_physics/layer_6="Boss"
 2d_physics/layer_7="Detection"
+2d_physics/layer_8="Boss_Damage"
 
 [rendering]
 

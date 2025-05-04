@@ -11,7 +11,7 @@ func attack(move = "1"):
 
 
 func combo():
-	var move_set = ["1","1","2","3","4","2"]
+	var move_set = ["1","2","3"]
 	for i in move_set:
 		await attack(i)
 	combo()
