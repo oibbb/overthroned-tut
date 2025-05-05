@@ -32,9 +32,21 @@ func _process(_delta):
 		animated_sprite.flip_h = direction.x < 0
 		
 
+var gravity := 1000
 func _physics_process(delta):
 	if player:
-		velocity = direction.normalized() * move_speed
+		direction = player.position - position
+
+		# Apply horizontal movement
+		velocity.x = direction.normalized().x * move_speed
+
+		# Apply gravity
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		else:
+			velocity.y = 0  # Cancel downward drift
+
+		# Move and slide, with UP direction for floor detection
 		move_and_slide()
 
 

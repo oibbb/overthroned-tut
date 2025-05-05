@@ -928,9 +928,12 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.666667, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": [],
+"method": &"disable_hitbox"
+}, {
 "args": [],
 "method": &"enable_hitbox"
 }, {
@@ -1213,7 +1216,7 @@ radius = 7.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqv5c"]
-size = Vector2(500, 500)
+size = Vector2(250, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxnx5"]
 size = Vector2(34, 49)
@@ -1236,6 +1239,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 light_mask = 3
 visibility_layer = 3
 position = Vector2(-3, 1)
@@ -1252,6 +1256,7 @@ position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_yqv5c")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(4, 0)
 collision_layer = 49
 collision_mask = 81
@@ -1340,4 +1345,5 @@ script = ExtResource("9_ru4kp")
 script = ExtResource("9_ru4kp")
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
