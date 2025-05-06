@@ -1270,7 +1270,6 @@ shape = SubResource("RectangleShape2D_pxnx5")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -1283,9 +1282,11 @@ offset_right = 100.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
+fill_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
+visible = false
 layout_mode = 0
 offset_left = 5.0
 offset_top = -19.0
@@ -1297,6 +1298,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1313,6 +1315,7 @@ text = "Boss Defeated"
 metadata/_edit_use_anchors_ = true
 
 [node name="debug" type="Label" parent="."]
+visible = false
 offset_left = -31.0
 offset_top = -51.0
 offset_right = 19.0

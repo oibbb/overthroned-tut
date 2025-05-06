@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player = get_parent().find_child("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var progress_bar = $UI/ProgressBar
-@export var move_speed = 40
+@export var move_speed = 100
 
 
 var direction : Vector2
@@ -11,13 +11,19 @@ var damage_cooldown := false
 var is_attacking := false
 
 # Health and ProgressBar logic
-var health := 10:
+var health := 50:
 	set(value):
 		health = value
 		progress_bar.value = value
 		if value <= 0:
 			progress_bar.visible = false
 			queue_free() 
+		if health == 20:
+			move_speed = 500
+		if health == 5:
+			move_speed = 1000
+		if health == 1:
+			move_speed = 2000
 
 func _ready():
 	add_to_group("samurai_wannabe") # So player can detect and damage this boss
